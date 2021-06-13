@@ -3,7 +3,7 @@ import os #imports OS module
 from discord.ext import commands #imports commands submodule from discord.ext
 from dotenv import load_dotenv #imports load_dotenv submodule from dotenv
 
-load_dotenv() #loads .env file, which stores our Discord bot token
+load_dotenv() #loads .env file, which stores our Discord bot token. You probably will need to make one yourself, in the same spot as the script.
 
 bot = commands.Bot(command_prefix = '!') #defines that this is a bot, and it's commands prefix
 
