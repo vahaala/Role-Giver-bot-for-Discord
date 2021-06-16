@@ -47,11 +47,11 @@ async def on_reaction_add(reaction, usr): #on added reaction:
 @bot.event
 async def on_reaction_remove(reaction, usr): #on revoked reaction (lots of code same as for adding reaction):
     message_id = msg.id
-    if reaction.message.id != message_id:
-        return
     for i in roles_dict:
         role_name = discord.utils.get(usr.roles, name = roles_dict.get(i))
         if reaction.emoji == i:
+            if reaction.message.id != message_id:
+                return
             await usr.remove_roles(role_name, atomic = True)
 
 bot.run(os.getenv("DISCORD_TOKEN"))
