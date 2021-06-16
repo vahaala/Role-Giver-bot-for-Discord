@@ -50,7 +50,7 @@ async def on_reaction_remove(reaction, usr): #on revoked reaction (lots of code 
     for i in roles_dict:
         role_name = discord.utils.get(usr.roles, name = roles_dict.get(i))
         if reaction.emoji == i:
-            if reaction.message.id != message_id:
+            if reaction.message.id != message_id: #checks if you're reacting to the latest message, instead of any of the previous. if yes, then add role, if message was older - do nothing.
                 return
             await usr.remove_roles(role_name, atomic = True)
 
